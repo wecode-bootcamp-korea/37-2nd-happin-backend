@@ -10,17 +10,7 @@ const globalErrorHandler = (error, req, res, next) => {
   res.status(error.statusCode).json({ message: error.message });
 };
 
-//   const affectedRowsErrorHandler = async (result) => {
-//     if (result.affectedRows !== 1) {
-//       const error = new Error('WRONG_INPUT_REQUEST');
-//       error.statusCode = 400;
-
-//       throw error;
-//     }
-//   };
-
 module.exports = {
   catchAsync,
   globalErrorHandler,
-  // affectedRowsErrorHandler,
 };
