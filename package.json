@@ -1,7 +1,6 @@
 {
   "name": "2nd-happin-backend-initialsetting",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
@@ -26,5 +25,14 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wecode-bootcamp-korea/37-2nd-happin-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wecode-bootcamp-korea/37-2nd-happin-backend/issues"
+  },
+  "homepage": "https://github.com/wecode-bootcamp-korea/37-2nd-happin-backend#readme",
+  "description": ""
 }
