@@ -37,7 +37,8 @@ const createUser = async (
 const getInterest = async () => {
   return await database.query(
     `SELECT
-        *
+        id,
+        interest
         FROM interests`
   );
 };
