@@ -3,7 +3,7 @@ CREATE TABLE pin_interests(
   id int not null auto_increment primary key,
   pin_id int not null,
   interest_id int not null,
-  FOREIGN KEY (pin_id) REFERENCES pins(id),
+  FOREIGN KEY (pin_id) REFERENCES pins(id) ON DELETE CASCADE,
   FOREIGN KEY (interest_id) REFERENCES interests(id)
 );
 
