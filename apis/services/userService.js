@@ -13,7 +13,7 @@ const signIn = async (
   let isRegistered = await userDao.getUserBySocialId(social_id);
 
   if (!isRegistered) {
-    await userDao.createUser(
+    await userDao.createUserBySocialId(
       social_id,
       username,
       profile_image,
