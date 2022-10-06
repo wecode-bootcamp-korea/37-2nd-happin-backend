@@ -69,7 +69,7 @@ const getUserInfo = async (userId) => {
     `
     SELECT 
         id AS userId,
-        username,
+        username userName,
         email,
         profile_image AS profileImage
     FROM users

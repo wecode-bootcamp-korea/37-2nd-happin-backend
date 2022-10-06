@@ -1,8 +1,9 @@
-const userService = require("./userService");
-const mainService = require("./mainService");
+const userService = require('./userService');
+const mainService = require('./mainService');
 const storedPinService = require('./storedPinService');
 const boardService = require('./boardService');
 const profileService = require('./profileService');
+const pinService = require('./pinService');
 
 module.exports = {
   userService,
@@ -10,4 +11,5 @@ module.exports = {
   storedPinService,
   boardService,
   profileService,
+  pinService,
 };
