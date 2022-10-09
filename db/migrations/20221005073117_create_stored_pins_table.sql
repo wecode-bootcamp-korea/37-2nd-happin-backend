@@ -4,7 +4,7 @@ CREATE TABLE stored_pins(
   user_id int not null,
   pin_id int not null,
   FOREIGN KEY (user_id) REFERENCES users(id),
-  FOREIGN KEY (pin_id) REFERENCES pins(id)
+  FOREIGN KEY (pin_id) REFERENCES pins(id) ON DELETE CASCADE
 );
 
 -- migrate:down
