@@ -1,4 +1,4 @@
-const database = require("./dataSource");
+const database = require('./dataSource');
 
 const getUserBySocialId = async (social_id) => {
   const [user] = await database.query(
@@ -42,8 +42,25 @@ const getInterest = async () => {
   );
 };
 
+const getUserInfo = async (userId) => {
+  const [result] = await database.query(
+    `
+    SELECT 
+        id AS userId,
+        username,
+        email,
+        profile_image AS profileImage
+    FROM users
+    WHERE id = ?
+    `,
+    [userId]
+  );
+  return result;
+};
+
 module.exports = {
   getUserBySocialId,
   createUser,
   getInterest,
+  getUserInfo,
 };
