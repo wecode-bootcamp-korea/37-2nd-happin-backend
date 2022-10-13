@@ -17,6 +17,12 @@ const createStoredPin = async (userId, pinId, boardId) => {
       `,
       [userId, pinId, userId, pinId]
     );
+    if (insertStoredPin.affectedRows !== 1) {
+      const error = new Error('PIN_NOT_SELECTED');
+      error.statusCode = 400;
+
+      throw error;
+    }
     const insertCustomBoard = await queryRunner.query(
       `
       INSERT INTO custom_boards
@@ -29,16 +35,14 @@ const createStoredPin = async (userId, pinId, boardId) => {
       `,
       [boardId, pinId, userId, boardId]
     );
+    if (insertCustomBoard.affectedRows !== 1) {
+      const error = new Error('BOARD_NOT_SELECTED');
+      error.statusCode = 400;
+
+      throw error;
+    }
     await queryRunner.commitTransaction();
   } catch (error) {
-    if (error) {
-      error.statusCode = 400;
-      error.message = 'WRONG_INPUT_DATA';
-    }
-    if (error.sqlMessage.includes('Duplicate')) {
-      error.statusCode = 400;
-      error.message = 'ALREADY_STORED_PIN';
-    }
     await queryRunner.rollbackTransaction();
     throw error;
   }
@@ -65,6 +69,7 @@ const deleteStoredPin = async (userId, pinId) => {
     return result;
   } catch (error) {
     await queryRunner.rollbackTransaction();
+    throw error;
   }
 };
 
